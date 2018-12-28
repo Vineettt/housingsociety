@@ -5,13 +5,30 @@
     <title><?= $title ?> | Housing Society</title>
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <nav class="navbar navbar-inverse">
         <div class="container">
-            <div class="navbar-header">
+            <div class="navbar-header hidden-xs">
                 <a class="navbar-brand" href="<?php echo base_url(); ?>">HousingSociety</a>
+            </div>
+            <div class="topnav hidden-lg hidden-md- hidden-sm">
+                <a href="<?php echo base_url(); ?>">HousingSociety</a>
+                <div id="myLinks">
+                    <a href="<?php echo base_url(); ?>">Home</a>
+                    <a href="<?php echo base_url(); ?>about">About</a>
+                    <?php if(!$this->session->userdata('logged_in')) : ?>
+                    <a href="<?php echo base_url(); ?>users/login">Login</a>
+                    <a href="<?php echo base_url(); ?>users/register">Register</a>
+                    <?php endif; ?>
+                    <?php if($this->session->userdata('logged_in')) : ?>
+                    <a href="<?php echo base_url(); ?>users/logout">Logout</a>
+                    <?php endif; ?>
+                </div>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
             </div>
             <ul class="nav navbar-nav hidden-xs">
                 <li><a href="<?php echo base_url(); ?>">Home</a></li>
