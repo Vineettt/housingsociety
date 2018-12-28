@@ -11,7 +11,7 @@
 			$this->db->where('password', $password);
 			$result = $this->db->get('users');
 			if($result->num_rows() == 1){
-				return $result->row(0)->user_id;
+				return $result->row(0);
 			} else {
 				return false;
 			}

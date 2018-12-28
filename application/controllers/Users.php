@@ -21,6 +21,7 @@
                 $this->load->model('user_model');
                 $this->user_model->register($data);
                 $this->session->set_flashdata('user_registered', 'You are now registered and can log in');
+                
             }
         }
         public function login(){
@@ -35,28 +36,27 @@
                 $this->load->model('user_model');
                 $username = $this->input->post('username');
 				$password = sha1($this->input->post('password'));
-                $user_id = $this->user_model->login($username, $password);
-                if($user_id){
+                $result = $this->user_model->login($username, $password);
+                if($result){
                     $user_data = array(
-						'user_id' => $user_id,
-						'username' => $username,
+						'user_id' => $result->user_id,
+                        'username' => $result->username,
+                        'housenumber' => $result->house_number,
 						'logged_in' => true
                     );
                     $this->session->set_userdata($user_data);
+                    redirect('home');
                 }else{
 
                 }
             }
         }
         public function logout(){
-			// Unset user data
 			$this->session->unset_userdata('logged_in');
 			$this->session->unset_userdata('user_id');
-			$this->session->unset_userdata('username');
-
-			// Set message
+            $this->session->unset_userdata('username');
+            $this->session->unset_userdata('housenumber');
 			$this->session->set_flashdata('user_loggedout', 'You are now logged out');
-
 			redirect('users/login');
 		}
     }
