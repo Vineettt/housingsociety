@@ -3,13 +3,14 @@
 		// Register user 
 		public function register(){
             $data['title'] = 'Sign Up';
-            $this->form_validation->set_rules('username', 'Username', 'required');
+            $this->form_validation->set_rules('username', 'Username', 'required|alpha_numeric');
             $this->form_validation->set_rules('fname', 'First Name', 'required');
             $this->form_validation->set_rules('lname', 'Last Name', 'required');
-            $this->form_validation->set_rules('houseNum', 'House Number', 'required');
-            $this->form_validation->set_rules('password', 'Password', 'required');
+            $this->form_validation->set_rules('houseNum', 'House Number', 'required|numeric');
+            $this->form_validation->set_rules('password', 'Password', 'required|alpha_numeric');
             $this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]');
-            $this->form_validation->set_rules('email', 'Email', 'required');
+            $this->form_validation->set_rules('phone','Phone Number','required|numeric');
+            $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
             if($this->form_validation->run() === FALSE){
                 $this->load->view('templates/header', $data);
                 $this->load->view('users/register', $data);
