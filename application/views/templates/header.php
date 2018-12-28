@@ -5,6 +5,7 @@
     <title><?= $title ?> | Housing Society</title>
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/font-awesome.min.css">
 </head>
 <body>
     <nav class="navbar navbar-inverse">
