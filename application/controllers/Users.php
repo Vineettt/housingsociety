@@ -4,6 +4,12 @@
 		public function register(){
             $data['title'] = 'Sign Up';
             $this->form_validation->set_rules('username', 'Username', 'required');
+            $this->form_validation->set_rules('fname', 'First Name', 'required');
+            $this->form_validation->set_rules('lname', 'Last Name', 'required');
+            $this->form_validation->set_rules('houseNum', 'House Number', 'required');
+            $this->form_validation->set_rules('password', 'Password', 'required');
+            $this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]');
+            $this->form_validation->set_rules('email', 'Email', 'required');
             if($this->form_validation->run() === FALSE){
                 $this->load->view('templates/header', $data);
                 $this->load->view('users/register', $data);
@@ -18,10 +24,9 @@
                     'password' => sha1($this->input->post('password')),
                     'email' => $this->input->post('email')
                 );
-                $this->load->model('user_model');
                 $this->user_model->register($data);
                 $this->session->set_flashdata('user_registered', 'You are now registered and can log in');
-                
+
             }
         }
         public function login(){
@@ -33,7 +38,6 @@
                 $this->load->view('users/login', $data);
                 $this->load->view('templates/footer', $data);
             }else{
-                $this->load->model('user_model');
                 $username = $this->input->post('username');
 				$password = sha1($this->input->post('password'));
                 $result = $this->user_model->login($username, $password);
