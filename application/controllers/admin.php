@@ -4,7 +4,9 @@
             if($this->session->userdata('adminlogged_in')){ 
                 $data['title']='Dashboard';
                 $data['users'] = $this->admin_model->getUsers();
+                $data['user_count'] = $this->db->count_all('users');
                 $this->load->view('admin/template/header', $data);
+                $this->load->view('admin/template/sidebar', $data);
                 $this->load->view('admin/dashboard/index', $data);
                 $this->load->view('admin/template/footer', $data);
             }else{
@@ -48,6 +50,56 @@
             $this->session->unset_userdata('adminlogged_in');
 			$this->session->set_flashdata('user_loggedout', 'You are now logged out');
 			redirect('admin/login');
+        }
+        public function users(){
+            if($this->session->userdata('adminlogged_in')){ 
+                $data['title']='Users';
+                $data['users'] = $this->admin_model->getUsers();
+                $this->load->view('admin/template/header', $data);
+                $this->load->view('admin/template/sidebar', $data);
+                $this->load->view('admin/users/index', $data);
+                $this->load->view('admin/template/footer', $data);
+            }else{
+                redirect('admin/login');   
+            }
+        }
+        public function billing(){
+            if($this->session->userdata('adminlogged_in')){ 
+                $data['title']='Billing';
+                $data['billings'] = $this->admin_model->billingDetail();
+                $this->load->view('admin/template/header', $data);
+                $this->load->view('admin/template/sidebar', $data);
+                $this->load->view('admin/billing/index', $data);
+                $this->load->view('admin/template/footer', $data);
+            }else{
+                redirect('admin/login');   
+            }
+        }
+        public function daily_notification(){
+            if($this->session->userdata('adminlogged_in')){ 
+                $data['title']='Daily Notification';
+                $data['daily_notifications']=$this->admin_model->getAllDailyNotification();
+                $this->form_validation->set_rules('title', 'Title', 'required');
+                $this->form_validation->set_rules('message', 'Message', 'required');
+                $this->form_validation->set_rules('date', 'Date', 'required');
+                if($this->form_validation->run() === FALSE){
+                    $this->load->view('admin/template/header', $data);
+                    $this->load->view('admin/template/sidebar', $data);
+                    $this->load->view('admin/daily_notification/index', $data);
+                    $this->load->view('admin/template/footer', $data);
+                }else{
+                    $data = array(
+                        'dn_title' => $this->input->post('title'),
+                        'dn_message' => $this->input->post('message'),
+                        'dn_date' => $this->input->post('date')
+                    );
+                    $this->admin_model->insertNotification($data);
+                    $this->session->set_flashdata('daily_notification', 'Daily Notification Created');
+                    redirect('admin/daily_notification');
+                }
+            }else{
+                redirect('admin/login');   
+            }
         }
     }
 ?>

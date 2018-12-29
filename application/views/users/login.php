@@ -1,3 +1,4 @@
+<?php echo validation_errors(); ?>
 <?php echo form_open('users/login'); ?>
 	<div class="row">
 		<div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">

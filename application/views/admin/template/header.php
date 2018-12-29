@@ -12,4 +12,20 @@
     <link href="<?php echo base_url(); ?>assets/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/sb-admin.css" rel="stylesheet">
     </head>
-     <body id="page-top">
+    <body id="page-top">   
+        <div class="container">
+            <div class="row width">   
+                <?php if($this->session->flashdata('daily_notification')): ?>
+                    <?php echo '<p class="alert alert-success">'.$this->session->flashdata('daily_notification').'</p>'; ?>
+                <?php endif; ?>
+                <?php if($this->session->flashdata('admin_loggedin')): ?>
+                    <?php echo '<p class="alert alert-success">'.$this->session->flashdata('admin_loggedin').'</p>'; ?>
+                <?php endif; ?>
+                <?php if($this->session->flashdata('user_loggedout')): ?>
+                    <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</p>'; ?>
+                <?php endif; ?>
+                <?php if($this->session->flashdata('adminlogin_failed')): ?>
+                    <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('adminlogin_failed').'</p>'; ?>
+                <?php endif; ?>
+            </div>
+        </div>

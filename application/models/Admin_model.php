@@ -17,5 +17,17 @@
             $result = $this->db->get('users');
             return $result->result();
         }
+        public function billingDetail(){
+            $this->db->join('users', 'users.user_id = billing.user_id');
+            $result = $this->db->get('billing');
+            return $result->result();
+        }
+        public function insertNotification($data){
+			return $this->db->insert('daily_notification', $data);
+		}
+		public function getAllDailyNotification(){
+            $result = $this->db->get('daily_notification');
+            return $result->result();
+        }
     }
 ?>

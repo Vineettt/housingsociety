@@ -1,51 +1,3 @@
-
-    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-
-<a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
-
-<button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
-  <i class="fas fa-bars"></i>
-</button>
-<div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-</div>
-
-<!-- Navbar -->
-<ul class="navbar-nav ml-auto ml-md-0">
-
-  <li class="nav-item dropdown no-arrow">
-    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fas fa-user-circle fa-fw"></i>
-    </a>
-    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-      <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-    </div>
-  </li>
-</ul>
-
-</nav>
-
-<div id="wrapper">
-
-<!-- Sidebar -->
-<ul class="sidebar navbar-nav">
-  <li class="nav-item active">
-    <a class="nav-link" href="index.html">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Dashboard</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="">
-      <i class="fas fa-fw fa-chart-area"></i>
-      <span>Charts</span></a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="tables.html">
-      <i class="fas fa-fw fa-table"></i>
-      <span>Tables</span></a>
-  </li>
-</ul>
-
 <div id="content-wrapper">
 
   <div class="container-fluid">
@@ -64,11 +16,11 @@
         <div class="card text-white bg-primary o-hidden h-100">
           <div class="card-body">
             <div class="card-body-icon">
-              <i class="fas fa-fw fa-comments"></i>
+              <i class="fas fa-users"></i>
             </div>
-            <div class="mr-5">26 New Messages!</div>
+            <div class="mr-5"><?= $user_count?> Users</div>
           </div>
-          <a class="card-footer text-white clearfix small z-1" href="#">
+          <a class="card-footer text-white clearfix small z-1" href="<?php echo base_url();?>admin/users">
             <span class="float-left">View Details</span>
             <span class="float-right">
               <i class="fas fa-angle-right"></i>
@@ -80,9 +32,9 @@
         <div class="card text-white bg-warning o-hidden h-100">
           <div class="card-body">
             <div class="card-body-icon">
-              <i class="fas fa-fw fa-list"></i>
+            <i class="fas fa-credit-card"></i>
             </div>
-            <div class="mr-5">11 New Tasks!</div>
+            <div class="mr-5"></div>
           </div>
           <a class="card-footer text-white clearfix small z-1" href="#">
             <span class="float-left">View Details</span>
@@ -130,7 +82,7 @@
     <div class="card mb-3">
       <div class="card-header">
         <i class="fas fa-table"></i>
-        Data Table Example</div>
+        Users</div>
       <div class="card-body">
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -169,7 +121,7 @@
           </table>
         </div>
       </div>
-      <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      <div class="card-footer small text-muted">Updated <?=  date("l")?> at <?= date("h:ia")?></div>
     </div>
 
   </div>
