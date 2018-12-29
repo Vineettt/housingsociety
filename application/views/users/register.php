@@ -18,7 +18,7 @@
 			</div>
             <div class="form-group">
 				<label>House Number</label>
-				<input type="num" class="form-control" name="houseNum" placeholder="House Number">
+				<input type="text" class="form-control" name="houseNum" placeholder="House Number">
 			</div>
 			<div class="form-group">
 				<label>Email</label>
