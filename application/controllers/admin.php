@@ -153,5 +153,21 @@
                 redirect('admin/login');   
             }
         }
+        public function participant($slug = NULL){
+            if($this->session->userdata('adminlogged_in')){
+                $data['eventDetail'] = $this->admin_model->getEventDetail($slug);
+                if(empty($data['eventDetail'])){
+                    show_404();
+                } 
+                $data['events'] = $this->admin_model->eventParticipant($slug);
+                $data['title']='Participant';                
+                $this->load->view('admin/template/header', $data);
+                $this->load->view('admin/template/sidebar', $data);
+                $this->load->view('admin/participant', $data);
+                $this->load->view('admin/template/footer', $data);
+            }else{
+                redirect('admin/login');   
+            }
+        }
     }
 ?>

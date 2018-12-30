@@ -1,6 +1,7 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function() {
   $('#users').DataTable();
+  $('#participant').DataTable();
   $('#billing').DataTable({
     "order": [[ 0, "desc" ]]
   });

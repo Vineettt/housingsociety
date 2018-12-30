@@ -20,7 +20,7 @@
         public function view($slug = NULL){
 			$data['event'] = $this->event_model->get_events($slug);
 			if(empty($data['event'])){
-				show_404();
+				redirect('event');
 			}
 			$data['interested'] = $this->event_model->checkEvent($slug, $_SESSION['user_id']);
 			$this->form_validation->set_rules('slug', 'Slug', 'required');
@@ -39,7 +39,7 @@
 					);
 					$this->event_model->insertShownInterest($data);
 					$this->session->set_flashdata('shown_interest', 'You are now registered and can log in');
-					redirect('event/'.$this->uri->segment(3).'');
+					redirect('event/view/'.$this->uri->segment(3).'');
 				}
 			}
 		}

@@ -9,7 +9,7 @@
         <?php if($this->session->userdata('logged_in')) : ?>
         <?php if((date("Y-m-d") < $event['event_startdate'])): ?>
         <?php if($interested == true) : ?>
-        <?php echo form_open('event/'.$event['event_id'].''); ?>
+        <?php echo form_open('event/view/'.$event['event_id'].''); ?>
             <input name="slug" value="<?= $event['event_id']?>" type="hidden">
             <div class="btn_center">
             <button type="submit" class="btn btn-primary">Show Interest</button>

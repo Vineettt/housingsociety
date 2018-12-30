@@ -41,5 +41,15 @@
             $result = $this->db->get('event');
             return $result->result();
 		}
+		public function eventParticipant($slug){
+			$this->db->join('users', 'users.user_id = eventparticipant.user_id');
+            $this->db->where('eventparticipant.event_id',$slug);
+			$query = $this->db->get('eventparticipant');
+			return $query->result_array();
+		}
+		public function getEventDetail($slug){
+			$query = $this->db->get_where('event', array('event_id' => $slug));
+			return $query->row_array();
+		}
     }
 ?>

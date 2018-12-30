@@ -66,6 +66,7 @@
                 <th>Start Time</th>
                 <th>End Time</th>
                 <th>End Date</th>
+                <th>Participant</th>
               </tr>
             </thead>
             <tfoot>
@@ -77,6 +78,7 @@
                 <th>Start Time</th>
                 <th>End Time</th>
                 <th>End Date</th>
+                <th>Participant</th>
               </tr>
             </tfoot>
             <tbody>
@@ -89,6 +91,7 @@
                     <td><?= $event->event_starttime?></td>
                     <td><?= $event->event_endtime?></td>
                     <td><?= $event->event_enddate?></td>
+                    <td><a href="<?= site_url('/admin/participant/'.$event->event_id.'');?>">Link</a></td>
                 </tr>
               <?php endforeach; ?>
             </tbody>
