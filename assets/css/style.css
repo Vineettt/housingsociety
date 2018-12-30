@@ -54,12 +54,14 @@ a.pagination-link{
 	background: #f4f4f4;
 	border: 1px #ccc solid;
 }
-.billing_date{
+.notificationBox .title, .billing_date{
   background: #f4f4f4;
   padding: 4px;
   margin: 3px 0;
   display: block;
 }
-.padding{
-  margin-bottom: 4rem;
+.BillingBox, .notificationBox {
+  border: 1px solid #3c763d;
+  padding: 1rem;
+  margin: 2rem 0;
 }

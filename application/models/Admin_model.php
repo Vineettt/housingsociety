@@ -28,6 +28,12 @@
 		public function getAllDailyNotification(){
             $result = $this->db->get('daily_notification');
             return $result->result();
+		}
+		public function getAllPost(){
+			$this->db->order_by('post.post_id', 'DESC');
+			$this->db->join('users', 'users.user_id = post.user_id');
+            $result = $this->db->get('post');
+            return $result->result();
         }
     }
 ?>

@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="//cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-inverse">
@@ -65,4 +66,7 @@
     <?php endif; ?>
     <?php if($this->session->flashdata('billing_successfull')): ?>
         <?php echo '<p class="alert alert-success">'.$this->session->flashdata('billing_successfull').'</p>'; ?>
+    <?php endif; ?>
+    <?php if($this->session->flashdata('post_submitted')): ?>
+        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_submitted').'</p>'; ?>
     <?php endif; ?>

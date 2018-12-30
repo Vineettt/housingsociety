@@ -15,8 +15,10 @@
 <?php foreach($billingDetails as $billingDetail) : ?>
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="billing_date">Billing Date : <?= $billingDetail['billing_timestamp']?></div>
-            <p class="padding"><strong><?= $billingDetail['month']?>/<?= $billingDetail['year']?></strong> payement is done by <?= $billingDetail['first_name']?> <?= $billingDetail['last_name']?> for house number <?= $billingDetail['house_number']?></p>
+            <div class="BillingBox">
+                <div class="billing_date">Payed On : <?= $billingDetail['billing_timestamp']?></div>
+                <p><strong><?= $billingDetail['month']?>/<?= $billingDetail['year']?></strong> payement is done by <?= $billingDetail['first_name']?> <?= $billingDetail['last_name']?> for house number <?= $billingDetail['house_number']?></p>   
+            </div>    
         </div>
     </div>
 <?php endforeach; ?>

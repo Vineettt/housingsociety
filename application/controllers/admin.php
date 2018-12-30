@@ -12,6 +12,7 @@
                 $data['title']='Dashboard';
                 $data['users'] = $this->admin_model->getUsers();
                 $data['user_count'] = $this->db->count_all('users');
+                $data['post_count'] = $this->db->count_all('post');
                 $this->load->view('admin/template/header', $data);
                 $this->load->view('admin/template/sidebar', $data);
                 $this->load->view('admin/dashboard', $data);
@@ -104,6 +105,18 @@
                     $this->session->set_flashdata('daily_notification', 'Daily Notification Created');
                     redirect('admin/daily_notification');
                 }
+            }else{
+                redirect('admin/login');   
+            }
+        }
+        public function posts(){
+            if($this->session->userdata('adminlogged_in')){ 
+                $data['title']='Suggestion / Complaint';
+                $data['posts']=$this->admin_model->getAllPost();
+                $this->load->view('admin/template/header', $data);
+                $this->load->view('admin/template/sidebar', $data);
+                $this->load->view('admin/posts', $data);
+                $this->load->view('admin/template/footer', $data);
             }else{
                 redirect('admin/login');   
             }

@@ -32,43 +32,11 @@
         <div class="card text-white bg-warning o-hidden h-100">
           <div class="card-body">
             <div class="card-body-icon">
-            <i class="fas fa-credit-card"></i>
+            <i class="fas fa-comment-alt"></i>
             </div>
-            <div class="mr-5"></div>
+            <div class="mr-5"><?= $post_count?> Suggestion / Complaint</div>
           </div>
-          <a class="card-footer text-white clearfix small z-1" href="#">
-            <span class="float-left">View Details</span>
-            <span class="float-right">
-              <i class="fas fa-angle-right"></i>
-            </span>
-          </a>
-        </div>
-      </div>
-      <div class="col-xl-3 col-sm-6 mb-3">
-        <div class="card text-white bg-success o-hidden h-100">
-          <div class="card-body">
-            <div class="card-body-icon">
-              <i class="fas fa-fw fa-shopping-cart"></i>
-            </div>
-            <div class="mr-5">123 New Orders!</div>
-          </div>
-          <a class="card-footer text-white clearfix small z-1" href="#">
-            <span class="float-left">View Details</span>
-            <span class="float-right">
-              <i class="fas fa-angle-right"></i>
-            </span>
-          </a>
-        </div>
-      </div>
-      <div class="col-xl-3 col-sm-6 mb-3">
-        <div class="card text-white bg-danger o-hidden h-100">
-          <div class="card-body">
-            <div class="card-body-icon">
-              <i class="fas fa-fw fa-life-ring"></i>
-            </div>
-            <div class="mr-5">13 New Tickets!</div>
-          </div>
-          <a class="card-footer text-white clearfix small z-1" href="#">
+          <a class="card-footer text-white clearfix small z-1" href="<?php echo base_url();?>admin/posts">
             <span class="float-left">View Details</span>
             <span class="float-right">
               <i class="fas fa-angle-right"></i>
@@ -89,8 +57,7 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Name</th>
                 <th>House Number</th>
                 <th>Phone Number</th>
                 <th>Email</th>
@@ -99,8 +66,7 @@
             <tfoot>
               <tr>
                 <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Name</th>
                 <th>House Number</th>
                 <th>Phone Number</th>
                 <th>Email</th>
@@ -110,8 +76,7 @@
               <?php foreach($users as $user) : ?>
                 <tr>
                     <td><?= $user->user_id?></td>
-                    <td><?= $user->first_name?></td>
-                    <td><?= $user->last_name?></td>
+                    <td><?= $user->first_name?> <?= $user->last_name?></td>
                     <td><?= $user->house_number?></td>
                     <td><?= $user->phone_number?></td>
                     <td><?= $user->email?></td>

@@ -42,11 +42,16 @@
   <li class="nav-item">
     <a class="nav-link" href="<?php echo base_url();?>admin/billing">
         <i class="fas fa-credit-card"></i>
-        <span>Payment</span></a>
+        <span>Maintenance</span></a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="<?php echo base_url();?>admin/daily_notification">
     <i class="fas fa-bell"></i>
         <span>Daily Notification</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="<?php echo base_url();?>admin/posts">
+    <i class="fas fa-bell"></i>
+        <span>Suggestion/Complaint</span></a>
   </li>
 </ul>

@@ -24,7 +24,9 @@
     <script src="<?php echo base_url(); ?>assets/js/demo/datatables-demo.js"></script>
     <script src="//cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
     <script>
-        CKEDITOR.replace( 'editor1' );
+        if($( "textarea" ).hasClass( "ckeditor" )){
+            CKEDITOR.replace( 'editor1' );
+        }
     </script>
   </body>
 </html>

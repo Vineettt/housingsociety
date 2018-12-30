@@ -7,49 +7,43 @@
       <li class="breadcrumb-item">
         <a href="<?php echo base_url();?>admin/dashboard">Dashboard</a>
       </li>
-      <li class="breadcrumb-item active">Maintenance</li>
+      <li class="breadcrumb-item active">Users</li>
     </ol>
 
     <!-- DataTables Example -->
     <div class="card mb-3">
       <div class="card-header">
         <i class="fas fa-table"></i>
-        Billing</div>
+        Posts</div>
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-bordered" id="billing" width="100%" cellspacing="0">
+          <table class="table table-bordered" id="posts" width="100%" cellspacing="0">
             <thead>
               <tr>
                 <th>ID</th>
-                <th>House Number</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Month</th>
-                <th>Year</th>
-                <th>Amount</th>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Post</th>
+                <th>Category</th>
               </tr>
             </thead>
             <tfoot>
               <tr>
-                 <th>ID</th>
-                <th>House Number</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Month</th>
-                <th>Year</th>
-                <th>Amount</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Post</th>
+                <th>Category</th>
               </tr>
             </tfoot>
             <tbody>
-              <?php foreach($billings as $billing) : ?>
+              <?php foreach($posts as $post) : ?>
                 <tr>
-                    <td><?= $billing->billing_id?></td>
-                    <td><?= $billing->house_number?></td>
-                    <td><?= $billing->first_name?></td>
-                    <td><?= $billing->last_name?></td>
-                    <td><?= $billing->month?></td>
-                    <td><?= $billing->year?></td>
-                    <td><?= $billing->amount?></td>
+                    <td><?= $post->post_id?></td>
+                    <td><?= $post->first_name?> <?= $post->last_name?></td>
+                    <td><?= $post->post_title?></td>
+                    <td><?= $post->post_body?></td>
+                    <td><?= $post->post_category?></td>
                 </tr>
               <?php endforeach; ?>
             </tbody>
