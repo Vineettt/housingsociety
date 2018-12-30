@@ -1,5 +1,12 @@
 <?php
 	class Admin extends CI_Controller{
+        public function index(){
+            if($this->session->userdata('adminlogged_in')){ 
+                redirect('admin/dashboard');
+            }else{
+                redirect('admin/login');
+            }
+        }
 		public function dashboard(){
             if($this->session->userdata('adminlogged_in')){ 
                 $data['title']='Dashboard';
@@ -7,7 +14,7 @@
                 $data['user_count'] = $this->db->count_all('users');
                 $this->load->view('admin/template/header', $data);
                 $this->load->view('admin/template/sidebar', $data);
-                $this->load->view('admin/dashboard/index', $data);
+                $this->load->view('admin/dashboard', $data);
                 $this->load->view('admin/template/footer', $data);
             }else{
                 redirect('admin/login');   
@@ -22,7 +29,7 @@
                 $this->form_validation->set_rules('password', 'Password', 'required');
                 if($this->form_validation->run() === FALSE){
                     $this->load->view('admin/template/header', $data);
-                    $this->load->view('admin/login/index', $data);
+                    $this->load->view('admin/login', $data);
                     $this->load->view('admin/template/footer', $data);
                 }else{
                     $username = $this->input->post('username');
@@ -57,7 +64,7 @@
                 $data['users'] = $this->admin_model->getUsers();
                 $this->load->view('admin/template/header', $data);
                 $this->load->view('admin/template/sidebar', $data);
-                $this->load->view('admin/users/index', $data);
+                $this->load->view('admin/users', $data);
                 $this->load->view('admin/template/footer', $data);
             }else{
                 redirect('admin/login');   
@@ -69,7 +76,7 @@
                 $data['billings'] = $this->admin_model->billingDetail();
                 $this->load->view('admin/template/header', $data);
                 $this->load->view('admin/template/sidebar', $data);
-                $this->load->view('admin/billing/index', $data);
+                $this->load->view('admin/billing', $data);
                 $this->load->view('admin/template/footer', $data);
             }else{
                 redirect('admin/login');   
@@ -85,7 +92,7 @@
                 if($this->form_validation->run() === FALSE){
                     $this->load->view('admin/template/header', $data);
                     $this->load->view('admin/template/sidebar', $data);
-                    $this->load->view('admin/daily_notification/index', $data);
+                    $this->load->view('admin/daily_notification', $data);
                     $this->load->view('admin/template/footer', $data);
                 }else{
                     $data = array(

@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['billing/info/(:any)'] = 'billing/info/$1';
 $route['profile'] = 'profile/index';
+$route['admin'] = 'admin/index';
 $route['billing'] = 'billing/index';
 $route['default_controller'] = 'pages/view';
 $route['(:any)'] = 'pages/view/$1';
