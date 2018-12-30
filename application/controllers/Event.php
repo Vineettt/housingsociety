@@ -1,28 +1,26 @@
 <?php
 	class Event extends CI_Controller{
-		public function index($offset = 0){
-            if($this->session->userdata('logged_in')){                 
-                $config['base_url'] = base_url() . 'event/index';
-    			$config['total_rows'] = $this->db->count_all('event');  
-	    		$config['per_page'] = 3;
-		    	$config['uri_segment'] = 3;
-			    $config['attributes'] = array('class' => 'pagination-link');
-			    $this->pagination->initialize($config);  
-                $data['title'] = 'Event';
-                $data['events'] = $this->event_model->get_events(FALSE, $config['per_page'], $offset);
-                $this->load->view('templates/header', $data);
-                $this->load->view('event/index', $data);
-                $this->load->view('templates/footer', $data);
-            }else{
-                redirect('users/login');
-            }
-        }
+		public function index($offset = 0){                
+            $config['base_url'] = base_url() . 'event/index';
+    		$config['total_rows'] = $this->db->count_all('event');  
+			$config['per_page'] = 3;
+		    $config['uri_segment'] = 3;
+		    $config['attributes'] = array('class' => 'pagination-link');
+		    $this->pagination->initialize($config);  
+            $data['title'] = 'Event';
+            $data['events'] = $this->event_model->get_events(FALSE, $config['per_page'], $offset);
+            $this->load->view('templates/header', $data);
+            $this->load->view('event/index', $data);
+			$this->load->view('templates/footer', $data);
+		}
         public function view($slug = NULL){
 			$data['event'] = $this->event_model->get_events($slug);
 			if(empty($data['event'])){
 				redirect('event');
 			}
-			$data['interested'] = $this->event_model->checkEvent($slug, $_SESSION['user_id']);
+			if($this->session->userdata('logged_in')){
+				$data['interested'] = $this->event_model->checkEvent($slug, $_SESSION['user_id']);
+			}
 			$this->form_validation->set_rules('slug', 'Slug', 'required');
 			if($this->form_validation->run() === FALSE){
 				$data['title'] = $data['event']['event_title'];

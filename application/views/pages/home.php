@@ -41,14 +41,14 @@
                 </div>
             </div>
         <?php endforeach; ?>
-        <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+    <?php endif; ?>
+    <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
             <div class="btn_center">
             <a type="submit" class="btn btn-primary" href="<?php echo base_url(); ?>event">View Upcoming Event's</a>
             </div>
         </div>
-    <?php endif; ?>
 </div>
-</div>
+</div> 
 </section>
 <div class="container">
 <div class="row">
