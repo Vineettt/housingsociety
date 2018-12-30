@@ -8,5 +8,10 @@
             $query = $this->db->get('daily_notification');
             return $query->result_array();
         }
+        public function todayEvent($date){
+            $this->db->where('event_startdate',$date);
+            $query = $this->db->get('event');
+            return $query->result_array();
+        }
     }
 ?>

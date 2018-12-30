@@ -39,7 +39,7 @@
 			    $this->pagination->initialize($config);  
                 $data['title'] = 'Billing Information';
                 $data['billing_info'] = $this->profile_model->checkbillinginfo($_SESSION['housenumber'],date('m'),date('Y'));
-                $data['billingDetails'] = $this->billing_model->get_billing_deatils(FALSE, $config['per_page'], $offset);
+                $data['billingDetails'] = $this->billing_model->get_billing_deatils($config['per_page'], $offset);
                 $this->load->view('templates/header', $data);
                 $this->load->view('billing/info', $data);
                 $this->load->view('templates/footer', $data);

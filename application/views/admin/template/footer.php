@@ -23,6 +23,23 @@
     <script src="<?php echo base_url(); ?>assets/js/sb-admin.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/demo/datatables-demo.js"></script>
     <script src="//cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/datepair.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.datepair.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.timepicker.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap-datepicker.js"></script>
+    <script>
+        $('#datepairExample .time').timepicker({
+            'showDuration': true,
+            'timeFormat': 'g:ia'
+        });
+
+        $('#datepairExample .date').datepicker({
+            'format': 'yyyy-mm-dd',
+            'autoclose': true
+        });
+
+        $('#datepairExample').datepair();
+    </script>
     <script>
         if($( "textarea" ).hasClass( "ckeditor" )){
             CKEDITOR.replace( 'editor1' );

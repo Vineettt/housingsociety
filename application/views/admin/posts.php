@@ -7,7 +7,7 @@
       <li class="breadcrumb-item">
         <a href="<?php echo base_url();?>admin/dashboard">Dashboard</a>
       </li>
-      <li class="breadcrumb-item active">Users</li>
+      <li class="breadcrumb-item active">Suggestion or Complaint</li>
     </ol>
 
     <!-- DataTables Example -->

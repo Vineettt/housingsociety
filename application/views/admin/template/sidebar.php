@@ -54,4 +54,9 @@
     <i class="fas fa-bell"></i>
         <span>Suggestion/Complaint</span></a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="<?php echo base_url();?>admin/event">
+    <i class="fas fa-calendar-check"></i>
+        <span>Events</span></a>
+  </li>
 </ul>

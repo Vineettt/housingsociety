@@ -7,14 +7,14 @@
       <li class="breadcrumb-item">
         <a href="<?php echo base_url();?>admin/dashboard">Dashboard</a>
       </li>
-      <li class="breadcrumb-item active">Daily Notification</li>
+      <li class="breadcrumb-item active">Event
     </ol>
     <div class="card mb-3">
       <div class="card-header">
       <i class="fas fa-plus-circle"></i>
-      Create Daily Notification</div>
+      Create Event</div>
       <div class="card-body">
-      <?php echo form_open_multipart('admin/daily_notification'); ?>
+      <?php echo form_open_multipart('admin/event'); ?>
 	      <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
@@ -24,14 +24,19 @@
           </div>
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
-              <label>Notification Message</label>
-              <textarea id="editor1" name="message" class="form-control ckeditor" required placeholder="notification message"></textarea>
+              <label>Event Detail</label>
+              <textarea id="editor1" name="detail" class="form-control ckeditor" required placeholder="notification message"></textarea>
             </div>
           </div>
-          <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
-              <label>Date</label>
-              <input type="date" name="date" class="form-control" placeholder="Pick Date" required>
+                <label>Duration of event</label>
+                <p id="datepairExample">
+                    <input type="text" name="startdate" class="date start" class="form-control" />
+                    <input type="text" name="starttime" class="time start" class="form-control"  /> to
+                    <input type="text" name="endtime" class="time end" class="form-control" />
+                    <input type="text" name="enddate" class="date end" class="form-control" />
+                </p>
             </div>
         </div>
         </div>
@@ -51,30 +56,39 @@
         Daily Notification</div>
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-bordered" id="dailynotifications" width="100%" cellspacing="0">
+          <table class="table table-bordered" id="events" width="100%" cellspacing="0">
             <thead>
               <tr>
                 <th>ID</th>
                 <th>Title</th>
-                <th>Notification Message</th>
-                <th>Date</th>
+                <th>Detail</th>
+                <th>Start Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>End Date</th>
               </tr>
             </thead>
             <tfoot>
               <tr>
                 <th>ID</th>
                 <th>Title</th>
-                <th>Notification Message</th>
-                <th>Date</th>
+                <th>Detail</th>
+                <th>Start Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>End Date</th>
               </tr>
             </tfoot>
             <tbody>
-              <?php foreach($daily_notifications as $notification) : ?>
+              <?php foreach($events as $event) : ?>
                 <tr>
-                    <td><?= $notification->dn_id?></td>
-                    <td><?= $notification->dn_title?></td>
-                    <td><?= $notification->dn_message?></td>
-                    <td><?= $notification->dn_date?></td>
+                    <td><?= $event->event_id?></td>
+                    <td><?= $event->event_title?></td>
+                    <td><?= $event->event_detail?></td>
+                    <td><?= $event->event_startdate?></td>
+                    <td><?= $event->event_starttime?></td>
+                    <td><?= $event->event_endtime?></td>
+                    <td><?= $event->event_enddate?></td>
                 </tr>
               <?php endforeach; ?>
             </tbody>

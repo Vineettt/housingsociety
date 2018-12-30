@@ -18,7 +18,8 @@
                 <a href="<?php echo base_url(); ?>">HousingSociety</a>
                 <div id="myLinks">
                     <a href="<?php echo base_url(); ?>">Home</a>
-                    <a href="<?php echo base_url(); ?>about">About</a>
+                    <a href="<?php echo base_url(); ?>event">Events</a>
+                    <a href="<?php echo base_url(); ?>about">About</a> 
                     <?php if(!$this->session->userdata('logged_in')) : ?>
                     <a href="<?php echo base_url(); ?>users/login">Login</a>
                     <a href="<?php echo base_url(); ?>users/register">Register</a>
@@ -34,6 +35,7 @@
             </div>
             <ul class="nav navbar-nav hidden-xs">
                 <li><a href="<?php echo base_url(); ?>">Home</a></li>
+                <li><a href="<?php echo base_url(); ?>event">Event</a></li>
                 <li><a href="<?php echo base_url(); ?>about">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right hidden-xs">

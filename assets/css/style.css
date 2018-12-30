@@ -54,14 +54,43 @@ a.pagination-link{
 	background: #f4f4f4;
 	border: 1px #ccc solid;
 }
-.notificationBox .title, .billing_date{
+.notificationBox .title, .billing_date, .eventBox .title, .eventBox .info{
   background: #f4f4f4;
   padding: 4px;
   margin: 3px 0;
   display: block;
 }
-.BillingBox, .notificationBox {
+.BillingBox, .notificationBox, .eventBox {
   border: 1px solid #3c763d;
   padding: 1rem;
   margin: 2rem 0;
+}
+.eventBox{
+  background-color: #fff;
+}
+.eventBox .end{
+  float: right;
+}
+.eventBox .info{
+  background-color: #fff;
+}
+section.event{
+ background: url('https://i.imgur.com/MJAkxbh.png'); 
+ margin: 1rem 0;
+}
+.event_info{
+  background: #f4f4f4;
+  padding: 4px;
+  margin: 10px 0;
+  display: block;
+}
+.event_info .end{
+  float: right;
+}
+.eventBox .detail p{
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

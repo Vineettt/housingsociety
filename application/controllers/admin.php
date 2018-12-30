@@ -121,5 +121,37 @@
                 redirect('admin/login');   
             }
         }
+        public function event(){
+            if($this->session->userdata('adminlogged_in')){ 
+                $data['title']='Events';
+                $data['events']=$this->admin_model->getAllEvent();
+                $this->form_validation->set_rules('title', 'Title', 'required');
+                $this->form_validation->set_rules('detail', 'Detail', 'required');
+                $this->form_validation->set_rules('startdate', 'Start Date', 'required');
+                $this->form_validation->set_rules('starttime', 'Start Time', 'required');
+                $this->form_validation->set_rules('endtime', 'End Time', 'required');
+                $this->form_validation->set_rules('enddate', 'End Date', 'required');
+                if($this->form_validation->run() === FALSE){
+                    $this->load->view('admin/template/header', $data);
+                    $this->load->view('admin/template/sidebar', $data);
+                    $this->load->view('admin/event', $data);
+                    $this->load->view('admin/template/footer', $data);
+                }else{
+                    $data = array(
+                        'event_title' => $this->input->post('title'),
+                        'event_detail' => $this->input->post('detail'),
+                        'event_startdate' => $this->input->post('startdate'),
+                        'event_starttime' => $this->input->post('starttime'),
+                        'event_endtime' => $this->input->post('endtime'),
+                        'event_enddate' => $this->input->post('enddate'),
+                    );
+                    $this->admin_model->insertEvent($data);
+                    $this->session->set_flashdata('event_insserted', 'Event Created');
+                    redirect('admin/event');
+                }
+            }else{
+                redirect('admin/login');   
+            }
+        }
     }
 ?>
